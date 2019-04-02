@@ -1,0 +1,22 @@
+FROM microsoft/dotnet:2.1-sdk-alpine AS build
+WORKDIR /src
+COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
+# RUN dotnet restore "BimData/BimData.csproj"
+COPY ["OpenAuth.App/OpenAuth.App.csproj", "OpenAuth.App/"]
+COPY ["OpenAuth.Repository/OpenAuth.Repository.csproj", "OpenAuth.Repository/"]
+COPY ["OpenAuth.Mvc/OpenAuth.Mvc.csproj", "OpenAuth.Mvc/"]
+RUN dotnet restore "OpenAuth.Mvc/OpenAuth.Mvc.csproj"
+COPY . .
+WORKDIR /src/OpenAuth.Mvc
+RUN dotnet publish "OpenAuth.Mvc.csproj" -c Release -o /app
+
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-alpine AS final
+ARG CONN_STR
+ARG SSO_URL
+ENV ConnectionStrings:OpenAuthDBContext=${CONN_STR}
+ENV AppSetting:SSOPassport=${SSO_URL}
+ENV ASPNETCORE_URLS=http://+:1802
+WORKDIR /app
+EXPOSE 1802
+COPY --from=build /app .
+CMD ["dotnet", "OpenAuth.Mvc.dll"]

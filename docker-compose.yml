@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    build: 
+      context: ./mysql
+      args:
+        SQL_PASS: ${SQL_PASS}
+    image: openauth/db
+    ports:
+      - "3306:3306"
+    container_name: openauthdb
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.WebApi
+      args: 
+        CONN_STR: Server=db;Database=openauthdb;Uid=root;Pwd=${SQL_PASS};CHARSET=utf8;
+    image: openauth/api
+    ports:
+      - "50001:52789"
+    container_name: openauthapi
+    depends_on: 
+      - db
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.Mvc
+      args: 
+        CONN_STR: Server=db;Database=openauthdb;Uid=root;Pwd=${SQL_PASS};CHARSET=utf8;
+        SSO_URL: http://localhost:50001
+    image: openauth/app
+    ports:
+      - "50000:1802"
+    container_name: openauthapp
+    depends_on: 
+      - db
+      - api
