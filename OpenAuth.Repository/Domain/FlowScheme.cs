@@ -18,7 +18,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 工作流模板信息表
 	/// </summary>
-      [Table("FlowScheme")]
+      [Table("flowscheme")]
     public partial class FlowScheme : Entity
     {
         public FlowScheme()

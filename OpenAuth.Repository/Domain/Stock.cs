@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 出入库信息表
 	/// </summary>
-      [Table("Stock")]
+      [Table("stock")]
     public partial class Stock : Entity
     {
         public Stock()

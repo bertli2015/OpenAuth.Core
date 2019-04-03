@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 功能模块表
 	/// </summary>
-      [Table("Module")]
+      [Table("module")]
     public partial class Module : TreeEntity
     {
         public Module()

@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 模拟一个自定页面的表单，该数据会关联到流程实例FrmData，可用于复杂页面的设计及后期的数据分析
 	/// </summary>
-      [Table("FrmLeaveReq")]
+      [Table("frmleavereq")]
     public partial class FrmLeaveReq : Entity
     {
         public FrmLeaveReq()

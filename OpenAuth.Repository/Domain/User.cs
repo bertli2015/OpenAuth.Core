@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 用户基本信息表
 	/// </summary>
-      [Table("User")]
+      [Table("user")]
     public partial class User : Entity
     {
         public User()

@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 资源表
 	/// </summary>
-      [Table("Resource")]
+      [Table("resource")]
     public partial class Resource : TreeEntity
     {
         public Resource()

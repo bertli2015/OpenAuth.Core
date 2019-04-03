@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 组织表
 	/// </summary>
-      [Table("Org")]
+      [Table("org")]
     public partial class Org : TreeEntity
     {
         public Org()

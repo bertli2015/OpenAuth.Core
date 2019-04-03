@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 角色表
 	/// </summary>
-      [Table("Role")]
+      [Table("role")]
     public partial class Role : Entity
     {
         public Role()

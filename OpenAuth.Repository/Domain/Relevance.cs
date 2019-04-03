@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 多对多关系集中映射
 	/// </summary>
-      [Table("Relevance")]
+      [Table("relevance")]
     public partial class Relevance : Entity
     {
         public Relevance()

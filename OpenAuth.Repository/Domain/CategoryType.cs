@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 分类类型
 	/// </summary>
-      [Table("CategoryType")]
+      [Table("categorytype")]
     public partial class CategoryType : Entity
     {
         public CategoryType()

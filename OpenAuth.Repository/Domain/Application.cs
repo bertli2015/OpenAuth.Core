@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 应用
 	/// </summary>
-      [Table("Application")]
+      [Table("application")]
     public partial class Application : Entity
     {
         public Application()

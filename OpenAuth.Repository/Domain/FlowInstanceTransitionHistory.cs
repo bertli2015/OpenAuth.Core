@@ -19,7 +19,7 @@ namespace OpenAuth.Repository.Domain
     /// <summary>
 	/// 工作流实例流转历史记录
 	/// </summary>
-      [Table("FlowInstanceTransitionHistory")]
+      [Table("flowinstancetransitionhistory")]
     public partial class FlowInstanceTransitionHistory : Entity
     {
         public FlowInstanceTransitionHistory()
